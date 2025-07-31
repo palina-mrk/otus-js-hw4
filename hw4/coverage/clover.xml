@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1753946732318" clover="3.2.0">
+  <project timestamp="1753946732318" name="All files">
+    <metrics statements="28" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="12" coveredmethods="8" elements="46" coveredelements="36" complexity="0" loc="28" ncloc="28" packages="1" files="1" classes="1"/>
+    <file name="script.js" path="/home/palina/otus/otus-js-hw4/hw4/script.js">
+      <metrics statements="28" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="12" coveredmethods="8"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="22" count="259" type="stmt"/>
+      <line num="23" count="259" type="stmt"/>
+      <line num="27" count="3" type="stmt"/>
+      <line num="28" count="3" type="stmt"/>
+      <line num="29" count="16" type="stmt"/>
+      <line num="30" count="3" type="stmt"/>
+      <line num="34" count="4" type="stmt"/>
+      <line num="35" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="40" count="42" type="stmt"/>
+      <line num="44" count="4" type="stmt"/>
+      <line num="45" count="4" type="stmt"/>
+      <line num="46" count="4" type="stmt"/>
+      <line num="47" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="49" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="7" type="stmt"/>
+      <line num="52" count="4" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
