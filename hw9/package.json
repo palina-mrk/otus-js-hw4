@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
