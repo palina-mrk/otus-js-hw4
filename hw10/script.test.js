@@ -11,6 +11,10 @@ const  {
   isEmail,
   isTelephoneNumber,
   isBetween,
+  has31days,
+  isLeap,
+  isCityCode,
+  isMobyCode,
   askInput,
 } = require('./script.js');
 
@@ -61,7 +65,6 @@ describe(`Checks the first task point`, () => {
   it("isBetween(num, min, max) is a function", () => {
     expect(isBetween).toBeInstanceOf(Function);
   });
-
   trueBetween.forEach((subel, ind) => {
     it(`returns true for ${subel} to be between ${mins[ind]} and ${maxs[ind]}`,() => {
       expect(isBetween(subel, mins[ind], maxs[ind])).toBe(true);
@@ -70,6 +73,38 @@ describe(`Checks the first task point`, () => {
   falseBetween.forEach((subel, ind) => {
     it(`returns false for ${subel} to be between ${mins[ind]} and ${maxs[ind]}`,() => {
       expect(isBetween(subel, mins[ind], maxs[ind])).toBe(false);
+    });
+  })
+
+  const true31days = [1, 3, 5, 7, 8, 10, 12];
+  const false31days = [-1, 0, 2, 4, 6, 9, 11, 13, 14, 100];
+  it("has31days(numOfMonth) is a function", () => {
+    expect(has31days).toBeInstanceOf(Function);
+  });
+  true31days.forEach((subel) => {
+    it(`returns true for month ${subel} to have 31 days`,() => {
+      expect(has31days(subel)).toBe(true);
+    });
+  })
+  false31days.forEach((subel) => {
+    it(`returns false for month ${subel} to have 31 days`,() => {
+      expect(has31days(subel)).toBe(false);
+    });
+  })
+
+  const leap = [2024, 2004, 1996, 1988, 1600, 2000];
+  const noLeap = [1800, 1000, 2001, 2002, 2003, 2100, 1900];
+  it("isLeap(year) is a function", () => {
+    expect(isLeap).toBeInstanceOf(Function);
+  });
+  leap.forEach((subel) => {
+    it(`returns true for year ${subel} to be leap`,() => {
+      expect(isLeap(subel)).toBe(true);
+    });
+  })
+  noLeap.forEach((subel) => {
+    it(`returns false for year ${subel} to be leap`,() => {
+      expect(isLeap(subel)).toBe(false);
     });
   })
 });
@@ -95,7 +130,7 @@ describe(`Checks the second task point`, () => {
 
 describe(`Checks the third task point`, () => {
   const addrss = ['khudziakova@tut.by','khudziakova@google.com','oyus@yaml.ru'];
-  const noAddrss = ['khudziakova@TUT.by','spf123@123..com','alexander99@.as'];
+  const noAddrss = ['khudziakova@TUT.by','spf123@123..com','alexander99@.as', 'jaws@jaws.spb.ru'];
   it("isEmail(str) is a function", () => {
     expect(isEmail).toBeInstanceOf(Function);
   });
@@ -110,6 +145,38 @@ describe(`Checks the third task point`, () => {
       expect(isEmail(subel)).toBe(false);
     });
   });
+
+  const cityCode = [15, 16, 17, 21, 22, 23];
+  const noCityCode = [0, 12, 18, 20, 24, 25];
+  it("isCityCode(code) is a function", () => {
+    expect(isCityCode).toBeInstanceOf(Function);
+  });
+  cityCode.forEach((subel) => {
+    it(`returns true for ${subel} to be a city code`,() => {
+      expect(isCityCode(subel)).toBe(true);
+    });
+  })
+  noCityCode.forEach((subel) => {
+    it(`returns false for ${subel} to be a city code`,() => {
+      expect(isCityCode(subel)).toBe(false);
+    });
+  })
+
+  const mobyCode = [25, 29, 33, 44];
+  const noMobyCode = [0, 17, 18, 26, 45];
+  it("isMobyCode(code) is a function", () => {
+    expect(isMobyCode).toBeInstanceOf(Function);
+  });
+  mobyCode.forEach((subel) => {
+    it(`returns true for ${subel} to be a moby code`,() => {
+      expect(isMobyCode(subel)).toBe(true);
+    });
+  })
+  noMobyCode.forEach((subel) => {
+    it(`returns false for ${subel} to be a moby code`,() => {
+      expect(isMobyCode(subel)).toBe(false);
+    });
+  })
 });
 
 describe(`Checks the input function`, () => {  

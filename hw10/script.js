@@ -101,6 +101,10 @@ module.exports = {
   isDate,
   isEmail,
   isBetween,
+  has31days,
+  isLeap,
   isTelephoneNumber,
+  isCityCode,
+  isMobyCode,
   askInput,
 };
