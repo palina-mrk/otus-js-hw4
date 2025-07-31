@@ -10,6 +10,7 @@ const  {
   isDate,
   isEmail,
   isTelephoneNumber,
+  isBetween,
   askInput,
 } = require('./script.js');
 
@@ -52,6 +53,25 @@ describe(`Checks the first task point`, () => {
       expect(isDate(subel)).toBe(false);
     });
   });
+
+  const mins = [14, 0, -5, 3.5];
+  const maxs = [15, 4, -5, 13];
+  const trueBetween = [14, 2,-5, 4];
+  const falseBetween = [13, -1,-4, 3];
+  it("isBetween(num, min, max) is a function", () => {
+    expect(isBetween).toBeInstanceOf(Function);
+  });
+
+  trueBetween.forEach((subel, ind) => {
+    it(`returns true for ${subel} to be between ${mins[ind]} and ${maxs[ind]}`,() => {
+      expect(isBetween(subel, mins[ind], maxs[ind])).toBe(true);
+    });
+  })
+  falseBetween.forEach((subel, ind) => {
+    it(`returns false for ${subel} to be between ${mins[ind]} and ${maxs[ind]}`,() => {
+      expect(isBetween(subel, mins[ind], maxs[ind])).toBe(false);
+    });
+  })
 });
 
 describe(`Checks the second task point`, () => {

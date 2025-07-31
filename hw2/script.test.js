@@ -22,9 +22,9 @@ describe(`Checks the first task point`, () => {
     expect(calcMax).toBeInstanceOf(Function);
   });
   
-  const numbersA = [1,'2',-10];
-  const numbersB = [3,'0',-20];
-  const maximums = [3,2,-10];
+  const numbersA = [1,'2',-10, 0];
+  const numbersB = [3,'0',-20, 9];
+  const maximums = [3,2,-10, 9];
   
   for (let i = 0; i < maximums.length; i++){
     it(`returns ${maximums[i]} to be max of ${numbersA[i]} and ${numbersB[i]}`, () => {
@@ -36,7 +36,7 @@ describe(`Checks the first task point`, () => {
     expect(areNumbers).toBeInstanceOf(Function);
   });
   
-  const valuesA = [-4, 0, 'abc', 23];
+  const valuesA = [-4, 0, 'abc', 0];
   const valuesB = [3, 'xyz', 200, 15];
   const bothNumbers = [true, false, false, true];
 

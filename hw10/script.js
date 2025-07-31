@@ -100,6 +100,7 @@ module.exports = {
   isRegexp,
   isDate,
   isEmail,
+  isBetween,
   isTelephoneNumber,
   askInput,
 };
