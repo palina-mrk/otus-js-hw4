@@ -1,7 +1,6 @@
 /*
 * @jest-environment jsdom
-* @type {import('jest').Config} */
-const config = require('./jest.config.js');
+*/
 
 const fs = require("fs");
 const htmlData = fs.readFileSync("./index.html");

@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/jest-dom": "^6.6.4",
     "jest-environment-jsdom": "^30.0.4",
     "mocha": "^11.7.1"
   },

@@ -1,8 +1,6 @@
 /*
 * @jest-environment jsdom
-* @type {import('jest').Config} */
-const config = require('./jest.config.js');
-
+*/
 const fs = require("fs");
 const htmlData = fs.readFileSync("./index.html");
 document.body.innerHTML = htmlData;
@@ -201,7 +199,7 @@ describe(`Checks the methods of InputForm`, () => {
     with cutten first and last spaces`, () => {  
       testForm.paragraphs.forEach((el,ind) => {el.innerText = `${ind}`});
       testForm.input.value = 'my text';
-      console.log(testForm.input.value, testForm.paragraphs);
+      //console.log(testForm.input.value, testForm.paragraphs);
       const pCount = testForm.paragraphs.length;
       
       testForm.addParagraph();
