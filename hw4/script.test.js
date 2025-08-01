@@ -1,8 +1,6 @@
 /*
 * @jest-environment jsdom
-* @type {import('jest').Config} */
-const config = require('./jest.config.js');
-
+*/
 const fs = require("fs");
 const htmlData = fs.readFileSync("./index.html");
 document.body.innerHTML = htmlData;
@@ -40,7 +38,7 @@ describe(`Checks the previous task`, () => {
         generatedNums[j] = generateRandomInt(mins[i], maxs[i]);
 
       for(let j = mins[i]; j <= maxs[i]; j++)
-        expect(generatedNums.find((el) => (el == j))).toEqual(j);
+        expect(generatedNums.find((el) => (el == j))).toBe(j);
     });
   }
 
@@ -73,7 +71,7 @@ describe(`Checks the first task point`, () => {
 
   for (let i = 0; i < sums.length; i++){
     it(`returns ${sums[i]} to be sum of array members [${arrays[i]}]`, () => {
-      expect(calcSum(arrays[i])).toEqual(sums[i]);
+      expect(calcSum(arrays[i])).toBe(sums[i]);
     });
   }  
 });
@@ -107,13 +105,13 @@ describe(`Checks the second task point`, () => {
     it(`returns the same array to be [${arrays[i]}] multiplied by 1`, () => {
       const multiplied = getMultipliedArray(arrays[i], 1); 
       for(let j = 0; j < multiplied.length; j++)
-        expect(multiplied[j]).toEqual(arrays[i][j]);
+        expect(multiplied[j]).toBe(arrays[i][j]);
     });
 
     it(`returns [${multipliedBy2[i]}] to be [${arrays[i]}] multiplied by 2`, () => {
       const multiplied = getMultipliedArray(arrays[i], 2); 
       for(let j = 0; j < multiplied.length; j++)
-        expect(multiplied[j]).toEqual(multipliedBy2[i][j]);
+        expect(multiplied[j]).toBe(multipliedBy2[i][j]);
     });
   }  
 });
