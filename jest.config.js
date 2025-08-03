@@ -15,13 +15,20 @@ const config = {
   // cacheDirectory: "/tmp/jest_0",
 
   // Automatically clear mock calls, instances, contexts and results before every test
-  // clearMocks: true,
+  clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    '**/*.{js,jsx}',
+    '!**/node_modules/**',
+    '!**/coverage/**',
+    '!**/vendor/**',
+    '!**/*.test.js',
+    '!jest.config.js'
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -43,7 +50,20 @@ const config = {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 50,
+      functions: 50,
+      lines: 50,
+      statements: 50,
+    },
+    "./hw7": {
+      branches: 60,
+      functions: 60,
+      lines: 60,
+      statements: 60,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -162,10 +182,9 @@ const config = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "/coverage/"
-  ],
+  // testPathIgnorePatterns: [
+  //   "/node_modules/"
+  // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
