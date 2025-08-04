@@ -9,11 +9,14 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "@eslint/css": "^0.10.0",
     "@eslint/js": "^9.32.0",
     "@eslint/json": "^0.13.1",
     "@eslint/markdown": "^7.1.0",
     "@testing-library/jest-dom": "^6.6.4",
+    "babel-jest": "^30.0.5",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.3.0",
