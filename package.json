@@ -27,6 +27,7 @@
     "\\.[jt]sx?$": "babel-jest"
   },
   "dependencies": {
+    "eslint-plugin-jest": "^29.0.1",
     "jsdom": "^26.1.0"
   }
 }
