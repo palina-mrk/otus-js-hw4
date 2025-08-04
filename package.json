@@ -2,12 +2,21 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
+    "eslint": "eslint",
+    "eslint:fix": "eslint --write .",
     "lint": "prettier --check .",
     "lint:fix": "prettier --write .",
     "prepare": "husky"
   },
   "devDependencies": {
+    "@eslint/css": "^0.10.0",
+    "@eslint/js": "^9.32.0",
+    "@eslint/json": "^0.13.1",
+    "@eslint/markdown": "^7.1.0",
     "@testing-library/jest-dom": "^6.6.4",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.3.0",
     "husky": "^9.1.7",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.4",
@@ -18,7 +27,6 @@
     "\\.[jt]sx?$": "babel-jest"
   },
   "dependencies": {
-    "eslint": "^9.32.0",
     "jsdom": "^26.1.0"
   }
 }
