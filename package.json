@@ -6,10 +6,11 @@
     "eslint:fix": "eslint --fix",
     "lint": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "**/*.js" : "lint"
+    "**/*.js": "npm run lint"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

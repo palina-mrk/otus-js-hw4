@@ -51,8 +51,21 @@ describe(`Checks the second task point`, () => {
     expect(getMonthName).toBeInstanceOf(Function);
   });
 
-  const monthNums = [1, 2, 12, 0, "aaa"];
-  const monthNames = ["January", "February", "December", "???", "???"];
+  const monthNums = [1, 2, 12, 0, "aaa", 3, 4, 5, 6, 7, 8, 9];
+  const monthNames = [
+    "January",
+    "February",
+    "December",
+    "???",
+    "???",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+  ];
 
   for (let i = 0; i < monthNames.length; i++) {
     it(`returns ${monthNames[i]} to be name of month number ${monthNums[i]}`, () => {
