@@ -4,7 +4,12 @@ body {
   margin: 1rem 1.2rem;
 }
 
-h1, h2, h3, p, ol, ul {
+h1,
+h2,
+h3,
+p,
+ol,
+ul {
   margin: 0.7rem 0 0.4rem;
   padding: 0;
 }

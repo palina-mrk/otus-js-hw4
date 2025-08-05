@@ -1,15 +1,11 @@
 /*
-* @jest-environment jsdom
-*/
+ * @jest-environment jsdom
+ */
 const fs = require("fs");
 const htmlData = fs.readFileSync("./index.html");
 document.body.innerHTML = htmlData;
 
-const  { 
-  User,    
-  askInput,
-  showObject,
-} = require('./script.js');
+const { User, askInput, showObject } = require("./script.js");
 
 describe(`Checks the previous task`, () => {
   const name = "some name";
@@ -29,44 +25,46 @@ describe(`Checks the previous task`, () => {
   });
 
   const obj = {
-    key1 : 15,
-    key2: 'somekey',
-    someFunc () {},
-    someMethod () {}
+    key1: 15,
+    key2: "somekey",
+    someFunc() {},
+    someMethod() {},
   };
 
   it("returns the string contain all non-functional initial object keys", () => {
     let showingStr = showObject(obj);
 
-    expect(showingStr.split(' ').length).toBe(4);
-    
-    expect(showingStr.includes('key1: 15')).toBe(true);
-    expect(showingStr.includes('key2: somekey')).toBe(true);
+    expect(showingStr.split(" ").length).toBe(4);
+
+    expect(showingStr.includes("key1: 15")).toBe(true);
+    expect(showingStr.includes("key2: somekey")).toBe(true);
 
     expect(showingStr.includes("someFunc")).toBe(false);
-    expect(showingStr.includes("someMethod")).toBe(false);  
-  });  
+    expect(showingStr.includes("someMethod")).toBe(false);
+  });
   it("returns the string contain all non-functional added object keys", () => {
-    obj['key3'] = 'v3';
-    obj['f3'] = () => {return 1;}
+    obj["key3"] = "v3";
+    obj["f3"] = () => {
+      return 1;
+    };
     let showingStr = showObject(obj);
-    
-    expect(showingStr.split(' ').length).toBe(6);
-    
-    expect(showingStr.includes('key3: v3')).toBe(true);
-    expect(showingStr.includes('f3')).toBe(false);
+
+    expect(showingStr.split(" ").length).toBe(6);
+
+    expect(showingStr.includes("key3: v3")).toBe(true);
+    expect(showingStr.includes("f3")).toBe(false);
   });
 });
 
 describe(`Checks the first and second task points`, () => {
-  const keys = ['age', 'job', 'role'];
-  const values =[27, 'programmer', 'admin'];
+  const keys = ["age", "job", "role"];
+  const values = [27, "programmer", "admin"];
   const user = new User();
 
   it("User.addProperty(key,value) is a function", () => {
     expect(user.addProperty).toBeInstanceOf(Function);
   });
-  for(let i = 0; i < keys.length; i++){
+  for (let i = 0; i < keys.length; i++) {
     it("adds a property ${keys[i]} with value ${values[i]} to the object", () => {
       user.addProperty(keys[i], values[i]);
       expect(user[keys[i]]).toBe(values[i]);
@@ -74,17 +72,17 @@ describe(`Checks the first and second task points`, () => {
   }
 });
 
-describe(`Checks the input function`, () => {  
+describe(`Checks the input function`, () => {
   it("askInput(message) is a function", () => {
     expect(askInput).toBeInstanceOf(Function);
   });
-  
-  const messages = ["Hello, user!","input a number!",""];
+
+  const messages = ["Hello, user!", "input a number!", ""];
   //начинаем тестировать askInput, которая работает с prompt
   //запоминаем исходный метод prompt
-  const originalPrompt = window.prompt;    
+  const originalPrompt = window.prompt;
   //проверяем вывод
-  for (let i = 0; i < messages.length; i++){
+  for (let i = 0; i < messages.length; i++) {
     it(`calls prompt with ${messages[i]} to ask user input`, () => {
       //подменяем prompt функцией, у которой можно отследить,
       //какое значение ей было передано
@@ -92,15 +90,15 @@ describe(`Checks the input function`, () => {
       //вызываем askInput
       askInput(messages[i]);
       //проверяем, что prompt был вызван с сообщением messages[i]
-      expect(window.prompt).toHaveBeenCalledWith(messages[i],"");
+      expect(window.prompt).toHaveBeenCalledWith(messages[i], "");
     });
   }
   //проверяем ввод
-  for (let i = 0; i < messages.length; i++){
+  for (let i = 0; i < messages.length; i++) {
     it(`correctly reads ${messages[i]} from user input`, () => {
       //подменяем prompt функцией, возвращающей messages[i]
       window.prompt = jest.fn(() => messages[i]);
-      //вызываем askInput, он должен вернуть messages[i] 
+      //вызываем askInput, он должен вернуть messages[i]
       expect(askInput("abc")).toBe(messages[i]);
     });
   }
