@@ -1,25 +1,22 @@
-name: Add codesandbox link
+name: PR Sanity Check
 
-on:
-  pull_request:
-    types: [opened]
-  # https://github.com/mshick/add-pr-comment/issues/25
-  pull_request_target:
-    types: [opened]
+on: pull_request
 
 jobs:
-  codesandbox-comment:
-    name: Add codesandbox link comment
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
+  lint:
+    runs-on: ubuntu-20.04
     steps:
-      - uses: mshick/add-pr-comment@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          message: |
-            You can check this code at CodeSandbox with the link
-            https://githubbox.com/${{ github.repository }}/tree/${{ github.head_ref }}
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Packages
+        run: |
+          npm install
+
+      - name: Lint check
+        run: |
+          npm run lint
+
+      - name: Lint check
+        run: |
+          npm run test
